@@ -1,0 +1,26 @@
+{
+  "label": "S0 E0 run 2",
+  "run_dir": "D:\\IT457\\Project\\results\\s0\\e0\\run2",
+  "duration_s": 300.0,
+  "requests_total": 28297,
+  "throughput_rps": 94.3,
+  "home_requests": 16972,
+  "availability_pct": 99.988,
+  "slo_met": true,
+  "error_rate_all_pct": 0.007,
+  "status_counts": {
+    "200": 28295,
+    "0": 2
+  },
+  "home_p50_ms": 5.6,
+  "home_p95_ms": 30.0,
+  "home_p99_ms": 47.8,
+  "degraded_seconds": 2,
+  "outage_seconds": 0,
+  "longest_outage_s": 0,
+  "fallback_pct_of_home": 0.0,
+  "events": [],
+  "mean_time_to_recover_s": null,
+  "unrecovered_events": 0,
+  "mean_time_to_restore_capacity_s": null
+}

@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 560" font-family="Segoe UI, Arial, sans-serif" font-size="13">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker>
+  </defs>
+  <rect width="960" height="560" fill="#fff"/>
+
+  <!-- BEFORE -->
+  <text x="20" y="30" font-size="17" font-weight="bold">(a) Before: Netflix data center (to 2008)</text>
+  <rect x="20" y="50" width="330" height="480" rx="8" fill="#fbeaea" stroke="#b33" stroke-dasharray="6 4"/>
+  <text x="35" y="75" font-weight="bold" fill="#b33">Single data center</text>
+
+  <rect x="60" y="95" width="250" height="44" rx="6" fill="#fff" stroke="#333"/>
+  <text x="185" y="122" text-anchor="middle">Website / DVD ops / early streaming</text>
+  <line x1="185" y1="139" x2="185" y2="175" stroke="#333" marker-end="url(#a)"/>
+
+  <rect x="60" y="178" width="250" height="110" rx="6" fill="#fff" stroke="#333"/>
+  <text x="185" y="205" text-anchor="middle" font-weight="bold">Monolithic Java application</text>
+  <text x="185" y="228" text-anchor="middle">catalogue · accounts · queue ·</text>
+  <text x="185" y="246" text-anchor="middle">billing · recommendations</text>
+  <text x="185" y="272" text-anchor="middle" font-style="italic">one build, one deploy</text>
+  <line x1="185" y1="288" x2="185" y2="325" stroke="#333" marker-end="url(#a)"/>
+
+  <rect x="60" y="328" width="250" height="70" rx="6" fill="#fff" stroke="#333"/>
+  <text x="185" y="356" text-anchor="middle" font-weight="bold">Oracle (vertically scaled)</text>
+  <text x="185" y="378" text-anchor="middle">single relational DB</text>
+
+  <text x="185" y="430" text-anchor="middle" fill="#b33" font-weight="bold">Aug 2008: DB corruption</text>
+  <text x="185" y="450" text-anchor="middle" fill="#b33">≈3 days unable to ship DVDs</text>
+  <text x="185" y="485" text-anchor="middle">Growth = buy bigger hardware,</text>
+  <text x="185" y="503" text-anchor="middle">months ahead of demand</text>
+
+  <!-- arrow -->
+  <line x1="360" y1="290" x2="398" y2="290" stroke="#333" stroke-width="2" marker-end="url(#a)"/>
+  <text x="379" y="278" text-anchor="middle" font-size="11">2009–16</text>
+
+  <!-- AFTER -->
+  <text x="410" y="30" font-size="17" font-weight="bold">(b) After: Netflix on AWS (2016)</text>
+  <rect x="410" y="50" width="530" height="480" rx="8" fill="#eaf3fb" stroke="#2a6"/>
+
+  <rect x="430" y="65" width="230" height="38" rx="6" fill="#fff" stroke="#333"/>
+  <text x="545" y="89" text-anchor="middle">Clients (TV, phone, browser)</text>
+  <line x1="545" y1="103" x2="545" y2="130" stroke="#333" marker-end="url(#a)"/>
+
+  <rect x="680" y="65" width="240" height="38" rx="6" fill="#fff4dc" stroke="#c80"/>
+  <text x="800" y="89" text-anchor="middle">Open Connect CDN (video bytes)</text>
+  <line x1="660" y1="84" x2="678" y2="84" stroke="#c80" marker-end="url(#a)"/>
+
+  <rect x="430" y="132" width="230" height="36" rx="6" fill="#fff" stroke="#333"/>
+  <text x="545" y="155" text-anchor="middle">Route 53 DNS → ELB → Zuul edge</text>
+  <line x1="545" y1="168" x2="545" y2="192" stroke="#333" marker-end="url(#a)"/>
+
+  <!-- region box -->
+  <rect x="425" y="195" width="500" height="240" rx="8" fill="#fff" stroke="#2a6" stroke-dasharray="5 3"/>
+  <text x="440" y="214" font-weight="bold" fill="#2a6">AWS region (×3: us-east-1, us-west-2, eu-west-1)</text>
+
+  <g>
+    <rect x="440" y="225" width="140" height="40" rx="5" fill="#dff0e5" stroke="#2a6"/><text x="510" y="250" text-anchor="middle">API / playback svc</text>
+    <rect x="590" y="225" width="140" height="40" rx="5" fill="#dff0e5" stroke="#2a6"/><text x="660" y="250" text-anchor="middle">Recommendations</text>
+    <rect x="740" y="225" width="170" height="40" rx="5" fill="#dff0e5" stroke="#2a6"/><text x="825" y="250" text-anchor="middle">Accounts / billing …</text>
+  </g>
+  <text x="675" y="285" text-anchor="middle" font-size="12">hundreds of microservices, each in an Auto Scaling Group across 3 AZs</text>
+  <text x="675" y="302" text-anchor="middle" font-size="12">Eureka discovery · Ribbon LB · Hystrix circuit breakers</text>
+  <line x1="675" y1="310" x2="675" y2="335" stroke="#333" marker-end="url(#a)"/>
+
+  <rect x="440" y="338" width="225" height="40" rx="5" fill="#fff" stroke="#333"/><text x="552" y="363" text-anchor="middle">Cassandra (multi-AZ, multi-region)</text>
+  <rect x="680" y="338" width="110" height="40" rx="5" fill="#fff" stroke="#333"/><text x="735" y="363" text-anchor="middle">EVCache</text>
+  <rect x="800" y="338" width="110" height="40" rx="5" fill="#fff" stroke="#333"/><text x="855" y="363" text-anchor="middle">S3</text>
+  <text x="675" y="410" text-anchor="middle" font-size="12">Spinnaker deploys · Atlas metrics · Chaos Monkey / Kong</text>
+
+  <text x="675" y="465" text-anchor="middle" font-weight="bold" fill="#2a6">No single host, AZ or region is critical</text>
+  <text x="675" y="487" text-anchor="middle">Capacity added in minutes; regions can be evacuated</text>
+  <text x="675" y="507" text-anchor="middle" font-size="12">(simplified; details per refs R3, R5, R10)</text>
+</svg>

@@ -1,0 +1,265 @@
+ Image app-app Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 479B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 355B done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.12-slim
+#3 DONE 1.0s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 63B done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 650B done
+#5 DONE 0.0s
+
+#6 [1/5] FROM docker.io/library/python:3.12-slim@sha256:6b25cbe6577518889d553cdd5a5da97d259348d8f6e45b527dd731caaba27a07
+#6 resolve docker.io/library/python:3.12-slim@sha256:6b25cbe6577518889d553cdd5a5da97d259348d8f6e45b527dd731caaba27a07 0.1s done
+#6 DONE 0.1s
+
+#7 [2/5] WORKDIR /srv
+#7 CACHED
+
+#8 [3/5] COPY requirements.txt .
+#8 CACHED
+
+#9 [4/5] RUN pip install --no-cache-dir -r requirements.txt
+#9 CACHED
+
+#10 [5/5] COPY src ./src
+#10 CACHED
+
+#11 exporting to image
+#11 exporting layers done
+#11 exporting manifest sha256:bfdf682d7dc63ae82b28072dd2be7907a417549fb6cef54869d4cde6da795c98 done
+#11 exporting config sha256:0f45ecce2322bfbfa7f9953c6f4f86066de383c4a692bd572be2ae72a9705115 done
+#11 exporting attestation manifest sha256:e93002f9d2833cc243abdfb0c94c1ec0a7104a30cd5207446ad2873c80acff9e 0.0s done
+#11 exporting manifest list sha256:bd3f50fcce524c2c31dfe746ec1199ac7a0d95383c628e9b5afd0ec8088e8dbb 0.0s done
+#11 naming to docker.io/library/app-app:latest done
+#11 unpacking to docker.io/library/app-app:latest 0.0s done
+#11 DONE 0.1s
+
+#12 resolving provenance for metadata file
+#12 DONE 0.0s
+ Image app-app Built 
+ Network app_default Creating 
+ Network app_default Creating 
+ Network app_default Created 
+ Network app_default Created 
+ Container app-db-1 Creating 
+ Container app-db-1 Created 
+ Container app-app-1 Creating 
+ Container app-app-1 Created 
+ Container app-db-1 Starting 
+ Container app-db-1 Started 
+ Container app-db-1 Waiting 
+ Container app-db-1 Healthy 
+ Container app-app-1 Starting 
+ Container app-app-1 Started 
+loadgen: http://localhost:8080 vus=20 duration=300s -> D:\IT457\Project\results\s0\e0\run1\requests.csv
+  t=   10s active_vus=20 queued=0
+  t=   20s active_vus=20 queued=0
+  t=   30s active_vus=20 queued=0
+  t=   40s active_vus=20 queued=0
+  t=   50s active_vus=20 queued=0
+  t=   60s active_vus=20 queued=0
+  t=   70s active_vus=20 queued=0
+  t=   80s active_vus=20 queued=0
+  t=   90s active_vus=20 queued=0
+  t=  100s active_vus=20 queued=0
+  t=  110s active_vus=20 queued=0
+  t=  120s active_vus=20 queued=0
+  t=  130s active_vus=20 queued=0
+  t=  140s active_vus=20 queued=0
+  t=  150s active_vus=20 queued=0
+  t=  160s active_vus=20 queued=0
+  t=  170s active_vus=20 queued=0
+  t=  180s active_vus=20 queued=0
+  t=  190s active_vus=20 queued=0
+  t=  200s active_vus=20 queued=0
+  t=  210s active_vus=20 queued=0
+  t=  220s active_vus=20 queued=0
+  t=  230s active_vus=20 queued=0
+  t=  240s active_vus=20 queued=0
+  t=  250s active_vus=20 queued=0
+  t=  260s active_vus=20 queued=0
+  t=  270s active_vus=20 queued=0
+  t=  280s active_vus=20 queued=0
+  t=  290s active_vus=20 queued=0
+  t=  300s active_vus=20 queued=0
+{
+  "label": "S0 E0 run 1",
+  "availability_pct": 100.0,
+  "slo_met": true,
+  "home_p50_ms": 5.3,
+  "home_p95_ms": 23.2,
+  "throughput_rps": 94.7,
+  "longest_outage_s": 0,
+  "mean_time_to_recover_s": null,
+  "mean_time_to_restore_capacity_s": null
+}
+results in D:\IT457\Project\results\s0\e0\run1
+loadgen: http://localhost:8080 vus=20 duration=300s -> D:\IT457\Project\results\s0\e0\run2\requests.csv
+  t=   10s active_vus=20 queued=0
+  t=   20s active_vus=20 queued=0
+  t=   30s active_vus=20 queued=0
+  t=   40s active_vus=20 queued=0
+  t=   50s active_vus=20 queued=1
+  t=   60s active_vus=20 queued=0
+  t=   70s active_vus=20 queued=0
+  t=   80s active_vus=20 queued=0
+  t=   90s active_vus=20 queued=0
+  t=  100s active_vus=20 queued=0
+  t=  110s active_vus=20 queued=0
+  t=  120s active_vus=20 queued=0
+  t=  130s active_vus=20 queued=0
+  t=  140s active_vus=20 queued=0
+  t=  150s active_vus=20 queued=0
+  t=  160s active_vus=20 queued=0
+  t=  170s active_vus=20 queued=0
+  t=  180s active_vus=20 queued=0
+  t=  190s active_vus=20 queued=0
+  t=  200s active_vus=20 queued=0
+  t=  210s active_vus=20 queued=0
+  t=  220s active_vus=20 queued=0
+  t=  230s active_vus=20 queued=0
+  t=  240s active_vus=20 queued=0
+  t=  250s active_vus=20 queued=0
+  t=  260s active_vus=20 queued=0
+  t=  270s active_vus=20 queued=0
+  t=  280s active_vus=20 queued=0
+  t=  290s active_vus=20 queued=0
+  t=  300s active_vus=20 queued=0
+{
+  "label": "S0 E0 run 2",
+  "availability_pct": 99.988,
+  "slo_met": true,
+  "home_p50_ms": 5.6,
+  "home_p95_ms": 30.0,
+  "throughput_rps": 94.3,
+  "longest_outage_s": 0,
+  "mean_time_to_recover_s": null,
+  "mean_time_to_restore_capacity_s": null
+}
+results in D:\IT457\Project\results\s0\e0\run2
+loadgen: http://localhost:8080 vus=20 duration=300s -> D:\IT457\Project\results\s0\e0\run3\requests.csv
+  t=   10s active_vus=20 queued=0
+  t=   20s active_vus=20 queued=0
+  t=   30s active_vus=20 queued=0
+  t=   40s active_vus=20 queued=0
+  t=   50s active_vus=20 queued=0
+  t=   60s active_vus=20 queued=0
+  t=   70s active_vus=20 queued=0
+  t=   80s active_vus=20 queued=0
+  t=   90s active_vus=20 queued=0
+  t=  100s active_vus=20 queued=0
+  t=  110s active_vus=20 queued=0
+  t=  120s active_vus=20 queued=0
+  t=  130s active_vus=20 queued=0
+  t=  140s active_vus=20 queued=0
+  t=  150s active_vus=20 queued=0
+  t=  160s active_vus=20 queued=0
+  t=  170s active_vus=20 queued=0
+  t=  180s active_vus=20 queued=0
+  t=  190s active_vus=20 queued=0
+  t=  200s active_vus=20 queued=0
+  t=  210s active_vus=20 queued=0
+  t=  220s active_vus=20 queued=0
+  t=  230s active_vus=20 queued=0
+  t=  240s active_vus=20 queued=0
+  t=  250s active_vus=20 queued=0
+  t=  260s active_vus=20 queued=0
+  t=  270s active_vus=20 queued=0
+  t=  280s active_vus=20 queued=0
+  t=  290s active_vus=20 queued=0
+  t=  300s active_vus=20 queued=0
+{
+  "label": "S0 E0 run 3",
+  "availability_pct": 99.976,
+  "slo_met": true,
+  "home_p50_ms": 5.4,
+  "home_p95_ms": 21.7,
+  "throughput_rps": 95.0,
+  "longest_outage_s": 0,
+  "mean_time_to_recover_s": null,
+  "mean_time_to_restore_capacity_s": null
+}
+results in D:\IT457\Project\results\s0\e0\run3
+loadgen: http://localhost:8080 vus=5->100 duration=300s -> D:\IT457\Project\results\s0\e5\run1\requests.csv
+  t=   10s active_vus=8 queued=0
+  t=   20s active_vus=11 queued=0
+  t=   30s active_vus=15 queued=0
+  t=   40s active_vus=18 queued=0
+  t=   50s active_vus=21 queued=0
+  t=   60s active_vus=24 queued=0
+  t=   70s active_vus=27 queued=0
+  t=   80s active_vus=30 queued=0
+  t=   90s active_vus=34 queued=0
+  t=  100s active_vus=37 queued=0
+  t=  110s active_vus=40 queued=0
+  t=  120s active_vus=43 queued=0
+  t=  130s active_vus=46 queued=0
+  t=  143s active_vus=50 queued=0
+  t= 3730s active_vus=100 queued=0
+{
+  "label": "S0 E5 run 1",
+  "availability_pct": 99.206,
+  "slo_met": true,
+  "home_p50_ms": 8.1,
+  "home_p95_ms": 70.0,
+  "throughput_rps": 4.4,
+  "longest_outage_s": 4,
+  "mean_time_to_recover_s": null,
+  "mean_time_to_restore_capacity_s": null
+}
+results in D:\IT457\Project\results\s0\e5\run1
+ Container app-app-1 Stopping 
+ Container app-app-1 Stopped 
+ Container app-app-1 Removing 
+ Container app-app-1 Removed 
+ Container app-db-1 Stopping 
+ Container app-db-1 Stopped 
+ Container app-db-1 Removing 
+ Container app-db-1 Removed 
+ Network app_default Removing 
+ Network app_default Removed 
+ Image app-catalogue Building 
+ Image app-recommendations Building 
+ Image app-auth Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 1.34kB done
+#1 DONE 0.0s
+
+#2 [recommendations internal] load build definition from Dockerfile
+#2 transferring dockerfile: 355B 0.1s done
+#2 transferring dockerfile: 355B 0.1s done
+#2 DONE 0.2s
+
+#3 [recommendations internal] load metadata for docker.io/library/python:3.12-slim
+#3 ERROR: failed to do request: Head "https://registry-1.docker.io/v2/library/python/manifests/3.12-slim": dialing registry-1.docker.io:443 container via direct connection because Docker Desktop has no HTTPS proxy: connecting to registry-1.docker.io:443: dial tcp: lookup registry-1.docker.io: no such host
+------
+ > [auth internal] load metadata for docker.io/library/python:3.12-slim:
+------
+Dockerfile:1
+
+--------------------
+
+   1 | >>> FROM python:3.12-slim
+
+   2 |     WORKDIR /srv
+
+   3 |     COPY requirements.txt .
+
+--------------------
+
+target auth: failed to solve: python:3.12-slim: failed to resolve source metadata for docker.io/library/python:3.12-slim: failed to do request: Head "https://registry-1.docker.io/v2/library/python/manifests/3.12-slim": dialing registry-1.docker.io:443 container via direct connection because Docker Desktop has no HTTPS proxy: connecting to registry-1.docker.io:443: dial tcp: lookup registry-1.docker.io: no such host
+
+
+
+View build details: docker-desktop://dashboard/build/default/default/iz6ku4ngz481thmns8e845r2b
+

@@ -1,0 +1,17 @@
+# S0 baseline: the monolith and Postgres on one machine (stands in for Netflix's own data center).
+#   docker compose up -d --build      ->  http://localhost:8080
+services:
+  db:
+    image: postgres:16-alpine
+    environment: {POSTGRES_USER: minix, POSTGRES_PASSWORD: minix, POSTGRES_DB: minix}
+    healthcheck: {test: ["CMD", "pg_isready", "-U", "minix"], interval: 2s, retries: 30}
+    volumes: [pgdata:/var/lib/postgresql/data]
+  app:
+    build: .
+    environment:
+      SERVICE: monolith
+      DATABASE_URL: postgresql://minix:minix@db:5432/minix
+    ports: ["8080:5000"]
+    depends_on: {db: {condition: service_healthy}}
+volumes:
+  pgdata:

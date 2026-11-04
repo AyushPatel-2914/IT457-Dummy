@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 600" font-family="Segoe UI, Arial, sans-serif" font-size="13">
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#333"/></marker>
+  </defs>
+  <rect width="960" height="600" fill="#fff"/>
+
+  <!-- S1 -->
+  <text x="20" y="30" font-size="17" font-weight="bold">S1: Lift-and-shift (rehost)</text>
+  <rect x="20" y="45" width="300" height="300" rx="8" fill="#fbeaea" stroke="#b33" stroke-dasharray="6 4"/>
+  <rect x="95" y="65" width="150" height="36" rx="6" fill="#fff" stroke="#333"/><text x="170" y="88" text-anchor="middle">k6 / Locust load</text>
+  <line x1="170" y1="101" x2="170" y2="135" stroke="#333" marker-end="url(#a)"/>
+  <rect x="45" y="138" width="250" height="150" rx="6" fill="#fff" stroke="#333"/>
+  <text x="170" y="160" text-anchor="middle" font-weight="bold">1 × EC2 t3.micro (1 AZ)</text>
+  <rect x="65" y="172" width="210" height="44" rx="5" fill="#eee" stroke="#666"/><text x="170" y="199" text-anchor="middle">Docker: monolith app</text>
+  <rect x="65" y="226" width="210" height="44" rx="5" fill="#eee" stroke="#666"/><text x="170" y="253" text-anchor="middle">Docker: Postgres</text>
+  <text x="170" y="315" text-anchor="middle" fill="#b33" font-weight="bold">Kill this instance → app down</text>
+  <text x="170" y="333" text-anchor="middle" fill="#b33">until a human restarts it</text>
+
+  <!-- S2 -->
+  <text x="345" y="30" font-size="17" font-weight="bold">S2: Refactor (services + ALB + ASG + managed DB)</text>
+  <rect x="345" y="45" width="595" height="420" rx="8" fill="#eaf3fb" stroke="#2a6"/>
+  <rect x="560" y="60" width="160" height="34" rx="6" fill="#fff" stroke="#333"/><text x="640" y="82" text-anchor="middle">k6 / Locust load</text>
+  <line x1="640" y1="94" x2="640" y2="112" stroke="#333" marker-end="url(#a)"/>
+  <rect x="490" y="114" width="300" height="38" rx="6" fill="#fff" stroke="#333"/>
+  <text x="640" y="138" text-anchor="middle">Application Load Balancer (path routing)</text>
+  <line x1="560" y1="152" x2="520" y2="180" stroke="#333" marker-end="url(#a)"/>
+  <line x1="720" y1="152" x2="760" y2="180" stroke="#333" marker-end="url(#a)"/>
+
+  <rect x="360" y="182" width="270" height="170" rx="6" fill="#fff" stroke="#2a6" stroke-dasharray="5 3"/>
+  <text x="495" y="200" text-anchor="middle" font-weight="bold" fill="#2a6">AZ a</text>
+  <rect x="650" y="182" width="275" height="170" rx="6" fill="#fff" stroke="#2a6" stroke-dasharray="5 3"/>
+  <text x="787" y="200" text-anchor="middle" font-weight="bold" fill="#2a6">AZ b</text>
+
+  <rect x="375" y="210" width="240" height="60" rx="5" fill="#dff0e5" stroke="#2a6"/>
+  <text x="495" y="233" text-anchor="middle">EC2: catalogue · recs · auth</text>
+  <text x="495" y="252" text-anchor="middle" font-size="11">(containers, circuit breaker)</text>
+  <rect x="665" y="210" width="245" height="60" rx="5" fill="#dff0e5" stroke="#2a6"/>
+  <text x="787" y="233" text-anchor="middle">EC2: catalogue · recs · auth</text>
+  <text x="787" y="252" text-anchor="middle" font-size="11">(containers, circuit breaker)</text>
+  <text x="642" y="292" text-anchor="middle" font-weight="bold">Auto Scaling Group: min 2 · desired 2 · max 4</text>
+  <text x="642" y="312" text-anchor="middle" font-size="12">target tracking on CPU 50% · ALB health checks replace dead instances</text>
+  <line x1="642" y1="352" x2="642" y2="378" stroke="#333" marker-end="url(#a)"/>
+
+  <rect x="470" y="380" width="345" height="40" rx="6" fill="#fff" stroke="#333"/>
+  <text x="642" y="405" text-anchor="middle">RDS Postgres (Multi-AZ optional) or DynamoDB</text>
+  <text x="642" y="448" text-anchor="middle" font-size="12">CloudWatch + Prometheus/Grafana · built with Terraform</text>
+
+  <!-- chaos actor -->
+  <rect x="20" y="380" width="300" height="85" rx="8" fill="#fff4dc" stroke="#c80"/>
+  <text x="170" y="405" text-anchor="middle" font-weight="bold">S3 chaos actor</text>
+  <text x="170" y="426" text-anchor="middle">chaos_monkey.py (boto3) · AWS FIS</text>
+  <text x="170" y="446" text-anchor="middle" font-size="12">terminate · AZ loss · latency · CPU stress</text>
+  <line x1="200" y1="380" x2="200" y2="292" stroke="#c80" stroke-width="2" stroke-dasharray="5 3" marker-end="url(#a)"/>
+  <line x1="320" y1="420" x2="372" y2="262" stroke="#c80" stroke-width="2" stroke-dasharray="5 3" marker-end="url(#a)"/>
+
+  <!-- legend / S4 -->
+  <rect x="20" y="490" width="920" height="90" rx="8" fill="#f7f7f7" stroke="#999"/>
+  <text x="40" y="515" font-weight="bold">S4 comparison: same load, same chaos schedule, two architectures</text>
+  <text x="40" y="538">Measured: availability %, error rate, p50/p95 latency, MTTR, scale-out time, cost per 1,000 requests, setup hours.</text>
+  <text x="40" y="560">S0 (laptop Docker) is the pre-cloud baseline; S5 models the same workload on AWS vs GCP vs on-prem.</text>
+</svg>
